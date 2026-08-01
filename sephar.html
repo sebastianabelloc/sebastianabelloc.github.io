@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SEPHAR — Underwater Glider for Europa · Sebastián Abello</title>
+<meta name="description" content="SEPHAR: design and analysis of a buoyancy-driven autonomous underwater glider for exploring the subsurface ocean of Europa." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="index.html">ABELLO<b>_</b>S</a>
+    <a class="back-link" href="index.html#work">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>All work
+    </a>
+  </div>
+</header>
+
+<main>
+<div class="pp wrap">
+  <span class="eyebrow">LOG-01 · TFG 2025–26</span>
+  <span class="badge done pp-badge">Complete</span>
+  <h1>SEPHAR — Underwater Glider for Europa</h1>
+  <p class="pp-lead">My final degree project: the design and analysis of an autonomous submersible glider conceived to reach and profile the subsurface ocean of Europa — one of the Solar System's strongest candidates for life.</p>
+
+  <div class="pp-specs">
+    <div class="pp-spec"><div class="v">2.70<span class="u"> m</span></div><div class="k">length</div></div>
+    <div class="pp-spec"><div class="v">~200<span class="u"> kg</span></div><div class="k">mass</div></div>
+    <div class="pp-spec"><div class="v">100<span class="u"> km</span></div><div class="k">design depth</div></div>
+    <div class="pp-spec"><div class="v">4.84</div><div class="k">max L/D</div></div>
+    <div class="pp-spec"><div class="v">74.9<span class="u"> d</span></div><div class="k">endurance</div></div>
+    <div class="pp-spec"><div class="v">€0</div><div class="k">software</div></div>
+  </div>
+
+  <div class="pp-body">
+    <div class="pp-sec">
+      <h4>Mission</h4>
+      <p>Europa hides a saltwater ocean up to ~100 km deep beneath its ice. Reaching it means surviving extreme hydrostatic pressure, operating with no GPS and no light, and enduring for months on a single battery — a design problem that breaks most conventional assumptions.</p>
+    </div>
+    <div class="pp-sec">
+      <h4>Architecture</h4>
+      <p>A buoyancy-driven glider was selected — no propellers or rotating machinery in the flow. The vehicle changes its own buoyancy to sink and rise, while hydrofoils convert that vertical motion into forward glide, spending energy only at each dive inflection. Hull: a Myring body of revolution in CFRP, ~2.70 m long, ~200 kg, with NACA 0009 hydrofoils.</p>
+    </div>
+    <div class="pp-sec">
+      <h4>Analysis pipeline</h4>
+      <p>Geometry parametrised in Fusion 360 → hydrodynamics characterised in OpenFOAM (k-ω SST with Langtry–Menter transition) across a sweep of angles of attack → cross-checked against a panel method in XFLR5 → longitudinal dynamic and mission model in MATLAB. Every mission value is traceable back to the computation that produced it.</p>
+    </div>
+    <div class="pp-sec">
+      <h4>Key results</h4>
+      <ul>
+        <li>Maximum lift-to-drag ratio of 4.84.</li>
+        <li>Longitudinally unstable by design (static margin −8.9%), stabilised with an active pitch-control system driven by a sliding internal mass.</li>
+        <li>Nominal mission: 6 full-depth dives over 74.9 days, using 3,483 Wh of an 8,400 Wh pack.</li>
+        <li>An alternate configuration tuned for the deepest part of the ocean also met mission objectives.</li>
+        <li>Complete engineering cycle — design, hydrodynamics, dynamics, control, validation — run on open-source tools on a laptop.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pp-stack">
+    <span class="chip">OpenFOAM</span><span class="chip">XFLR5</span><span class="chip">MATLAB</span><span class="chip">Fusion 360</span><span class="chip">CFD</span><span class="chip">Flight dynamics</span>
+  </div>
+
+  <div class="pp-actions">
+    <a class="btn primary" href="SebastianAbelloTFG.pdf" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>Read the thesis · 118 pp
+    </a>
+  </div>
+
+  <div class="pp-nav">
+    <a href="a400m-session-manager.html"><div class="dir">← Previous</div><div class="nm">Simulator Session Manager</div></a>
+    <a class="next" href="gnc-toolkit.html"><div class="dir">Next →</div><div class="nm">GNC Toolkit</div></a>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 SEBASTIÁN ABELLO — MADRID</span><span>*OPEN-SOURCE / FREE TOOLS · RUN ON A LAPTOP</span></div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

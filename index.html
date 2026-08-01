@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sebastián Abello — Aerospace / GNC</title>
+<meta name="description" content="Aerospace engineer in flight-simulator test & integration on the A400M, moving toward Guidance, Navigation & Control. Projects, background and contact." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="index.html">ABELLO<b>_</b>S</a>
+    <nav>
+      <a href="#about">// about</a>
+      <a href="#work">// work</a>
+      <a href="#contact">// contact</a>
+    </nav>
+    <span class="status-pill"><i></i>Open to work</span>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <canvas id="traj"></canvas>
+  <div class="wrap">
+    <span class="eyebrow">Aerospace Engineer · Guidance, Navigation &amp; Control</span>
+    <h1>Sebastián<br><span class="l2">Abello</span></h1>
+    <p class="role">
+      Flight-simulator <b>test &amp; integration</b> on the Airbus A400M, and a final-year aerospace engineer
+      heading into <b>GNC</b> — the systems that decide how a vehicle flies, navigates and holds its course.
+    </p>
+    <div class="readout">
+      <div class="ro"><div class="k">Base</div><div class="v">MAD</div></div>
+      <div class="ro"><div class="k">Program</div><div class="v">A400M</div></div>
+      <div class="ro"><div class="k">Range</div><div class="v" id="ro-range">0</div></div>
+      <div class="ro"><div class="k">Alt</div><div class="v" id="ro-alt">0</div></div>
+      <div class="ro"><div class="k">Vel</div><div class="v" id="ro-vel">0</div></div>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="#work">Review work</a>
+      <a class="btn" href="cv.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>CV
+      </a>
+      <a class="btn" href="https://www.linkedin.com/in/sebastian-abello-30a642265/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="tag">01</span><h2>About</h2><span class="rule"></span></div>
+    <div class="about-grid reveal">
+      <div>
+        <p>Final-year Aerospace Engineering student at Universidad Europea de Madrid, currently working as a
+          <b>Flight Simulator Test &amp; Integration Engineer</b> on the A400M program at Airbus Defence &amp; Space (through CT Engineering).</p>
+        <p>I work where flight dynamics, control systems and code meet. Designing and modelling the guidance and
+          control of autonomous vehicles is the work I care about most — and the direction I'm building toward.</p>
+        <p>Bilingual (Spanish / English), EU work-eligible, and always glad to talk with people working across space and defense.</p>
+      </div>
+      <div class="sys">
+        <div class="sys-h">// system status</div>
+        <dl>
+          <div class="row"><dt>Location</dt><dd>Madrid, ES</dd></div>
+          <div class="row"><dt>Current</dt><dd>Airbus A400M · CT</dd></div>
+          <div class="row"><dt>Focus</dt><dd class="amber">GNC · Flight Dynamics</dd></div>
+          <div class="row"><dt>Stack</dt><dd>MATLAB · OpenFOAM · Python</dd></div>
+          <div class="row"><dt>Next</dt><dd>C++ · Simulink</dd></div>
+          <div class="row"><dt>Eligibility</dt><dd>ES + CO dual national</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="tag">02</span><h2>Mission log</h2><span class="rule"></span></div>
+    <div class="filters reveal">
+      <button class="chip-btn active" data-filter="all">All</button>
+      <button class="chip-btn" data-filter="done">Complete</button>
+      <button class="chip-btn" data-filter="wip">In progress</button>
+      <button class="chip-btn" data-filter="int">Internal</button>
+    </div>
+
+    <a class="log reveal" href="sephar.html" data-status="done">
+      <div class="log-h"><div><span class="idx">LOG-01 · TFG 2025–26</span><h3>SEPHAR — Underwater Glider for Europa</h3></div><span class="badge done">Complete</span></div>
+      <p class="desc">A buoyancy-driven autonomous glider designed to survive and explore the ~100 km-deep ocean beneath the ice of Europa. Full pipeline built largely on open-source tools, on a laptop.</p>
+      <div class="metrics">
+        <div class="m"><div class="v">4.84</div><div class="k">max L/D</div></div>
+        <div class="m"><div class="v">100<span class="u"> km</span></div><div class="k">design depth</div></div>
+        <div class="m"><div class="v">74.9<span class="u"> d</span></div><div class="k">6-dive mission</div></div>
+        <div class="m"><div class="v">€0</div><div class="k">software cost*</div></div>
+      </div>
+      <div class="log-f"><div class="stack"><span class="chip">OpenFOAM</span><span class="chip">XFLR5</span><span class="chip">MATLAB</span><span class="chip">Fusion 360</span></div>
+        <span class="open-cue">View briefing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    </a>
+
+    <a class="log reveal" href="gnc-toolkit.html" data-status="wip">
+      <div class="log-h"><div><span class="idx">LOG-02 · personal</span><h3>GNC Toolkit</h3></div><span class="badge wip">In progress</span></div>
+      <p class="desc">A Python toolkit I'm building to turn control and orbital-mechanics theory into code I can run, test and break — as I move toward Guidance, Navigation &amp; Control.</p>
+      <div class="log-f"><div class="stack"><span class="chip">Python</span><span class="chip">Control systems</span><span class="chip">Orbital mechanics</span><span class="chip">C++ (next)</span></div>
+        <span class="open-cue">View briefing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    </a>
+
+    <a class="log reveal" href="a400m-session-manager.html" data-status="int">
+      <div class="log-h"><div><span class="idx">LOG-03 · Airbus A400M · CT</span><h3>Simulator Session Manager</h3></div><span class="badge int">Internal</span></div>
+      <p class="desc">An internal tool built during my systems-integration work on the A400M full-flight simulator to plan and manage test-session scheduling across the team.</p>
+      <div class="log-f"><div class="stack"><span class="chip">Excel / VBA</span><span class="chip">Systems integration</span><span class="chip">Test planning</span></div>
+        <span class="open-cue">View briefing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    </a>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="tag">03</span><h2>Contact</h2><span class="rule"></span></div>
+    <div class="c-grid reveal">
+      <div>
+        <h2>Let's build something<br>that <span class="cy">flies.</span></h2>
+        <p>Open to roles and conversations in GNC, flight dynamics, simulation and systems integration across space &amp; defense.</p>
+      </div>
+      <div class="links">
+        <a class="lrow" href="mailto:YOUR-EMAIL@example.com"><span class="k">Email</span><span class="v">YOUR-EMAIL@example.com →</span></a>
+        <a class="lrow" href="https://www.linkedin.com/in/sebastian-abello-30a642265/" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">/sebastian-abello →</span></a>
+        <a class="lrow" href="https://github.com/YOUR-GITHUB" target="_blank" rel="noopener"><span class="k">GitHub</span><span class="v">/YOUR-GITHUB →</span></a>
+        <a class="lrow" href="cv.pdf" download><span class="k">Résumé</span><span class="v">cv.pdf ↓</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 SEBASTIÁN ABELLO — MADRID</span>
+    <span>*OPEN-SOURCE / FREE TOOLS · RUN ON A LAPTOP</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
