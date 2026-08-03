@@ -1,6 +1,12 @@
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* arrancar siempre arriba: sin restauración de scroll ni salto por ancla al cargar */
+  if('scrollRestoration' in history){ history.scrollRestoration='manual'; }
+  window.addEventListener('load', function(){
+    if(!window.location.hash){ window.scrollTo(0,0); }
+  });
+
   /* filters (operate on real link cards) */
   var chipBtns=document.querySelectorAll('.chip-btn');
   chipBtns.forEach(function(b){
