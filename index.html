@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=11" />
+<link rel="stylesheet" href="style.css?v=12" />
 </head>
 <body>
 
@@ -105,13 +105,13 @@
     <a class="log has-media reveal" href="sephar.html">
       <div class="log-body">
         <div class="log-h"><div><span class="idx">Thesis · 2025–26</span><h3>SEPHAR: Underwater Glider for Europa</h3></div><span class="badge done">Complete</span></div>
-        <p class="desc">Buoyancy-driven autonomous glider for the subsurface ocean of Europa, sized for extreme pressure and cryogenic conditions. Hydrodynamics in OpenFOAM and pitch control with a sliding battery mass.</p>
+        <p class="desc">Buoyancy-driven autonomous glider for the subsurface ocean of Europa. Statically unstable in pitch by design and flown by a cascaded controller on a sliding internal mass, with gains sized from the OpenFOAM CFD results. 9-state longitudinal model and full 100 km mission simulation.</p>
         <div class="metrics">
-          <div class="m"><div class="v">4.84</div><div class="k">max L/D</div></div>
+          <div class="m"><div class="v">−8.9<span class="u"> %</span></div><div class="k">static margin</div></div>
+          <div class="m"><div class="v">3.2<span class="u">×</span></div><div class="k">gain margin</div></div>
           <div class="m"><div class="v">100<span class="u"> km</span></div><div class="k">design depth</div></div>
-          <div class="m"><div class="v">74.9<span class="u"> d</span></div><div class="k">6-dive mission</div></div>
         </div>
-        <div class="log-f"><div class="stack"><span class="chip">OpenFOAM</span><span class="chip">XFLR5</span><span class="chip">MATLAB</span><span class="chip">Fusion 360</span></div>
+        <div class="log-f"><div class="stack"><span class="chip">MATLAB</span><span class="chip">Control design</span><span class="chip">OpenFOAM</span><span class="chip">Fusion 360</span></div>
           <span class="open-cue">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </div>
       <div class="log-media light"><img src="assets/sephar-exterior.png" alt="SEPHAR underwater glider, exterior CAD render" loading="lazy" /></div>

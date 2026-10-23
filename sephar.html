@@ -4,11 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>SEPHAR: Underwater Glider for Europa · Sebastián Abello</title>
-<meta name="description" content="SEPHAR: design and analysis of a buoyancy-driven autonomous underwater glider for the subsurface ocean of Europa. BSc thesis, Universidad Europea de Madrid." />
+<meta name="description" content="SEPHAR: flight dynamics, control and hydrodynamic design of a buoyancy-driven autonomous underwater glider for the subsurface ocean of Europa. BSc thesis, Universidad Europea de Madrid." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=11" />
+<link rel="stylesheet" href="style.css?v=12" />
 </head>
 <body>
 
@@ -26,7 +26,7 @@
   <span class="eyebrow">BSc thesis · 2025–26</span>
   <span class="badge done pp-badge">Complete</span>
   <h1>SEPHAR: Underwater Glider for Europa</h1>
-  <p class="pp-lead">Design and analysis of an autonomous underwater glider for the subsurface ocean of Europa (Jupiter). BSc thesis in Aerospace Engineering, Universidad Europea de Madrid.</p>
+  <p class="pp-lead">Design, flight dynamics and control of an autonomous buoyancy-driven glider for the subsurface ocean of Europa (Jupiter). The vehicle is statically unstable in pitch by design and is flown by a cascaded controller sized from CFD results. BSc thesis in Aerospace Engineering, Universidad Europea de Madrid.</p>
 
   <div class="pp-figure wide">
     <div class="pp-figure-img"><img src="assets/sephar-exterior.png" alt="SEPHAR underwater glider, exterior CAD render showing hull, hydrofoils and tail" loading="lazy" /></div>
@@ -34,43 +34,130 @@
   </div>
 
   <div class="pp-specs">
-    <div class="pp-spec"><div class="v">2.70<span class="u"> m</span></div><div class="k">length</div></div>
-    <div class="pp-spec"><div class="v">~200<span class="u"> kg</span></div><div class="k">mass</div></div>
+    <div class="pp-spec"><div class="v">−8.9<span class="u"> %</span></div><div class="k">static margin</div></div>
+    <div class="pp-spec"><div class="v">3.2<span class="u">×</span></div><div class="k">pitch gain margin</div></div>
+    <div class="pp-spec"><div class="v">4.84</div><div class="k">max L/D (CFD)</div></div>
     <div class="pp-spec"><div class="v">100<span class="u"> km</span></div><div class="k">design depth</div></div>
-    <div class="pp-spec"><div class="v">4.84</div><div class="k">max L/D</div></div>
-    <div class="pp-spec"><div class="v">74.9<span class="u"> d</span></div><div class="k">endurance</div></div>
+    <div class="pp-spec"><div class="v">74.9<span class="u"> d</span></div><div class="k">6-dive mission</div></div>
   </div>
 
   <div class="pp-body">
     <div class="pp-sec">
       <h4>Mission</h4>
-      <p>Europa has a saltwater ocean up to about 100 km deep under its ice shell. A vehicle there has to withstand very high hydrostatic pressure, navigate without GPS or light and operate for months on a single battery.</p>
+      <p>Europa has a saltwater ocean up to about 100 km deep under its ice shell. A vehicle there has to withstand up to 174 MPa, operate without GPS or light and run for months on a single battery. The mission profile is six dives of increasing depth, from 500 m to the seafloor at 100 km.</p>
     </div>
+
     <div class="pp-sec">
-      <h4>Architecture</h4>
-      <p>Buoyancy-driven glider with no propellers. It changes its buoyancy to sink and rise, and the hydrofoils turn that vertical motion into forward glide, so energy is only spent at each change of direction. Myring hull in CFRP, 2.70 m long and about 200 kg, with NACA 0009 hydrofoils.</p>
+      <h4>Vehicle and actuators</h4>
+      <p>No propellers: the glider sinks and rises by changing its buoyancy, and the hydrofoils turn that vertical motion into forward glide. Attitude is controlled with internal masses instead of control surfaces in the flow.</p>
+      <ul>
+        <li>Buoyancy engine: hydraulic pump moving oil to an external bladder, ±8.4 kg authority.</li>
+        <li>Pitch: 6.5 kg sliding mass on two lead screws driven by a stepper motor, 300 mm travel.</li>
+        <li>Roll: 4.2 kg tungsten eccentric mass rotating 360° for coordinated turns.</li>
+        <li>Heading: aft rudder, ±20°.</li>
+        <li>Near-isopycnal hull (compressibility matched to 77 % of the water) so the buoyancy authority holds down to 100 km.</li>
+      </ul>
       <div class="pp-figure">
         <div class="pp-figure-img"><img src="assets/sephar-cutaway.png" alt="SEPHAR internal layout, cutaway view showing pressure vessels, battery packs, sliding internal mass and control systems" loading="lazy" /></div>
-        <div class="pp-figure-cap"><b>FIG-02</b>Cutaway: forward pressure vessel, battery banks, sliding pitch-control mass, aft electronics bay</div>
+        <div class="pp-figure-cap"><b>FIG-02</b>Cutaway: payload bay, electronics pressure vessel, battery banks, sliding pitch mass</div>
       </div>
     </div>
+
     <div class="pp-sec">
-      <h4>Analysis</h4>
-      <p>Geometry in Fusion 360, hydrodynamics in OpenFOAM (k-ω SST with Langtry-Menter transition) over a sweep of angles of attack, cross-checked with a panel method in XFLR5, and a longitudinal dynamics and mission model in MATLAB.</p>
+      <h4>Dynamic model</h4>
+      <p>Longitudinal model derived from the Graver (2005) 6-DOF formulation for buoyancy-driven gliders, with 9 states: inertial position, pitch angle and rate, two body-frame velocities, pitch-mass position and momentum, and ballast mass. It includes hydrodynamic added mass, Europa's gravity (1.315 m/s²) and the residual hull compressibility, and takes lift, drag and pitching moment from polynomial fits of the CFD results. Integrated in MATLAB with ode15s, with the energy of the pump, the pitch actuator and the electronics as extra states.</p>
     </div>
+
+    <div class="pp-sec">
+      <h4>Control</h4>
+      <p>The positive Munk moment makes the bare airframe unstable in pitch (C<sub>mα</sub> = +0.197 /rad), so trim is held actively with a cascaded controller:</p>
+      <ul>
+        <li>Phase logic: hysteretic state machine that switches between descent and ascent at 97 % of the target depth and near the surface.</li>
+        <li>Outer loop: proportional law from pitch error to desired mass position, K<sub>p,θ</sub> = 3.0 m/rad.</li>
+        <li>Inner loop: feedforward + PD on the mass position, K<sub>p</sub> = 10 N/m, K<sub>d</sub> = 18 N·s/m.</li>
+        <li>Buoyancy: first-order lag on the pump command (τ = 60 s) with flow-rate saturation.</li>
+      </ul>
+      <p style="margin-top:16px">The outer gain is sized from the CFD moment: the worst destabilising moment at trim (2.36 N·m) sets a minimum gain of 0.93 m/rad at full mass travel, so the adopted 3.0 m/rad gives a 3.2× margin.</p>
+      <div class="pp-figure">
+        <div class="pp-figure-img dark">
+          <svg class="loop" viewBox="0 0 760 250" role="img" aria-label="Cascaded pitch control loop: phase logic sets the pitch reference, the outer proportional loop gives the desired mass position, the inner PD loop drives the sliding mass, which moves the glider; pitch and mass position are fed back.">
+            <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#8B95A9"/></marker></defs>
+            <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#EAEEF6" text-anchor="middle">
+              <rect x="10" y="70" width="110" height="56" rx="6" fill="#111827" stroke="#2C9DA3"/><text x="65" y="95">Phase logic</text><text x="65" y="111" fill="#8B95A9">depth → θref</text>
+              <circle cx="150" cy="98" r="11" fill="none" stroke="#8B95A9"/><text x="150" y="102">Σ</text>
+              <rect x="180" y="70" width="120" height="56" rx="6" fill="#111827" stroke="#2C9DA3"/><text x="240" y="95">Outer loop</text><text x="240" y="111" fill="#8B95A9">θ → rP1,des</text>
+              <circle cx="330" cy="98" r="11" fill="none" stroke="#8B95A9"/><text x="330" y="102">Σ</text>
+              <rect x="360" y="70" width="120" height="56" rx="6" fill="#111827" stroke="#2C9DA3"/><text x="420" y="95">Inner loop</text><text x="420" y="111" fill="#8B95A9">FF + PD</text>
+              <rect x="510" y="70" width="100" height="56" rx="6" fill="#111827" stroke="#F2B45C"/><text x="560" y="95">Pitch mass</text><text x="560" y="111" fill="#8B95A9">stepper</text>
+              <rect x="640" y="70" width="110" height="56" rx="6" fill="#111827" stroke="#F2B45C"/><text x="695" y="95">Glider</text><text x="695" y="111" fill="#8B95A9">9-state model</text>
+              <rect x="640" y="170" width="110" height="50" rx="6" fill="#111827" stroke="#F2B45C"/><text x="695" y="192">Buoyancy pump</text><text x="695" y="208" fill="#8B95A9">lag τ = 60 s</text>
+              <text x="140" y="190" fill="#8B95A9" text-anchor="start">±4 kg ballast command</text>
+            </g>
+            <g stroke="#8B95A9" stroke-width="1.3" fill="none">
+              <path d="M120 98H137" marker-end="url(#ar)"/><path d="M161 98H178" marker-end="url(#ar)"/>
+              <path d="M300 98H317" marker-end="url(#ar)"/><path d="M341 98H358" marker-end="url(#ar)"/>
+              <path d="M480 98H508" marker-end="url(#ar)"/><path d="M610 98H638" marker-end="url(#ar)"/>
+              <path d="M695 70V30H150V85" marker-end="url(#ar)"/>
+              <path d="M560 126V150H330V111" marker-end="url(#ar)"/>
+              <path d="M65 126V195H638" marker-end="url(#ar)"/>
+              <path d="M695 170V128" marker-end="url(#ar)"/>
+            </g>
+            <g font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#54E0E6">
+              <text x="160" y="24">pitch θ</text><text x="345" y="166">mass position rP1</text>
+            </g>
+          </svg>
+        </div>
+        <div class="pp-figure-cap"><b>FIG-03</b>Cascaded pitch control: phase logic, outer P loop on pitch, inner FF + PD loop on the sliding mass</div>
+      </div>
+    </div>
+
+    <div class="pp-sec">
+      <h4>Navigation</h4>
+      <p>Defined at concept level: the pressure sensor gives depth, the only absolute position reference under the ice; an IMU gives attitude and dead reckoning; an acoustic modem gives ranging and data transfer at the ice-water interface between dives.</p>
+    </div>
+
+    <div class="pp-sec">
+      <h4>Hydrodynamics (CFD)</h4>
+      <p>Geometry in Fusion 360 and RANS simulations in OpenFOAM (k-ω SST and Langtry-Menter transition) over a sweep of angles of attack, cross-checked with a panel method in XFLR5. The results give the lift, drag and pitching-moment fits used by the dynamic model, the maximum L/D of 4.84 and the negative static margin that the controller has to handle.</p>
+    </div>
+
     <div class="pp-sec">
       <h4>Results</h4>
       <ul>
-        <li>Maximum lift-to-drag ratio of 4.84.</li>
-        <li>Longitudinally unstable by design (static margin −8.9 %), stabilised by active pitch control with a stepper-driven sliding battery mass.</li>
-        <li>Nominal mission of 6 full-depth dives over 74.9 days, using 3,483 Wh of an 8,400 Wh battery.</li>
-        <li>An alternate configuration for the deepest part of the ocean also met the mission objectives.</li>
+        <li>Pitch trim held at about ±5° in every dive despite the open-loop instability.</li>
+        <li>Trim glide at 0.43 m/s, 2.9° angle of attack and 57 mm/s vertical speed.</li>
+        <li>Full 6-dive mission to 100 km in 74.9 days, with over 1,000 km of horizontal range.</li>
+        <li>3,483 Wh used out of an 8,400 Wh battery: 63 % electronics, 37 % buoyancy pump, under 1 Wh for the pitch actuator.</li>
       </ul>
+      <div class="pp-figure">
+        <div class="pp-figure-img"><img src="assets/sephar-trajectory.png" alt="Glide trajectory, horizontal range against depth, for the six dive cycles" loading="lazy" /></div>
+        <div class="pp-figure-cap"><b>FIG-04</b>Simulated glide trajectory: horizontal range against depth for the six dives</div>
+      </div>
+    </div>
+
+    <div class="pp-sec">
+      <h4>Optimised operational mission</h4>
+      <p>The six-dive profile above is a demonstration that the vehicle works across the whole water column. A real science campaign would stay deep: one descent to 80 km, ten loiter cycles in the 70–90 km band near the seafloor and one ascent to a recharge station, about 114 days with 82 of them inside the survey band.</p>
+      <ul>
+        <li>Without changes this mission needs 17.4 kWh, about twice the battery, so it is not feasible on one charge.</li>
+        <li>Pre-charging the oil pressure vessel to the equivalent of 50 km depth cuts the pump energy by 73 % and the total to 7.2 kWh, 86 % of the battery.</li>
+        <li>Matching the pre-charge to the loiter centre (80 km) cuts the pump energy by 86 %.</li>
+        <li>The same pre-charge penalises surface-returning dives, so the design is optimised for going deep and staying there.</li>
+      </ul>
+      <div class="pp-figure">
+        <div class="pp-figure-img"><img src="assets/sephar-operational.png" alt="Operational deep-survey mission: depth and ballast mass over 114 days, with ten loiter cycles between 70 and 90 km" loading="lazy" /></div>
+        <div class="pp-figure-cap"><b>FIG-05</b>Operational deep-survey mission: depth and ballast command over 114 days</div>
+      </div>
+    </div>
+
+    <div class="pp-sec">
+      <h4>Limitations and next steps</h4>
+      <p>The simulation covers the longitudinal plane only. The roll mass and the rudder are sized but not simulated, and navigation is not modelled. Next steps: a 6-DOF model with roll and heading loops and current disturbances, and a GPS-denied navigation filter combining depth, inertial data and acoustic ranging.</p>
     </div>
   </div>
 
   <div class="pp-stack">
-    <span class="chip">OpenFOAM</span><span class="chip">XFLR5</span><span class="chip">MATLAB</span><span class="chip">Fusion 360</span><span class="chip">CFD</span><span class="chip">Flight dynamics</span>
+    <span class="chip">MATLAB</span><span class="chip">Flight dynamics</span><span class="chip">Control design</span><span class="chip">OpenFOAM</span><span class="chip">XFLR5</span><span class="chip">Fusion 360</span>
   </div>
 
   <div class="pp-actions">
