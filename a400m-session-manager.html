@@ -4,62 +4,58 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Simulator Session Manager · Sebastián Abello</title>
-<meta name="description" content="Internal tool that streamlines the preparation and setup of A400M full-flight simulator test sessions, so every configuration is right before the test window opens." />
+<meta name="description" content="Internal Python tool that standardizes the preparation of A400M full-flight simulator test sessions." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="style.css?v=11" />
 </head>
 <body>
 
 <header class="bar">
   <div class="wrap">
     <a class="brand" href="index.html">ABELLO<b>_</b>S</a>
-    <a class="back-link" href="index.html#work">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>All work
+    <a class="back-link" href="index.html#projects">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>All projects
     </a>
   </div>
 </header>
 
 <main>
 <div class="pp wrap">
-  <span class="eyebrow">LOG-02 · Airbus A400M · CT Engineering</span>
+  <span class="eyebrow">Airbus A400M · CT Ingenieros</span>
   <span class="badge int pp-badge">Internal</span>
   <h1>Simulator Session Manager</h1>
-  <p class="pp-lead">A practical tool built alongside my day-to-day test &amp; integration work on the A400M full-flight simulator at Airbus Defence &amp; Space — designed to make the preparation before every test session faster, cleaner and less error-prone.</p>
+  <p class="pp-lead">Internal tool for the A400M full-flight simulator that standardizes the preparation of each test session.</p>
 
   <div class="pp-body">
     <div class="pp-sec">
       <h4>What it does</h4>
-      <p>Guides and structures the setup work that has to happen before each simulator test session — the configurations, checks and inputs the sim needs so that when the test slot opens, everything is already in place and the team can go straight into testing instead of troubleshooting.</p>
+      <p>Generates a session preparation checklist with 7 categories across 3 linked sheets, written in Python with openpyxl, including formulas and conditional formatting. It covers the configuration, deployment and verification steps the simulator needs before a certification test session.</p>
     </div>
     <div class="pp-sec">
-      <h4>Why it matters</h4>
-      <p>Simulator time is scarce and expensive, and a single misconfigured parameter can burn hours of a shared session. The tool turns what used to be scattered notes and tacit knowledge into a repeatable, checkable process, cutting prep time and reducing the risk of a lost session.</p>
-    </div>
-    <div class="pp-sec">
-      <h4>Context</h4>
-      <p>Built in a security-cleared defense environment, kept deliberately simple and maintainable so the team could rely on it day to day. A small example of removing friction from the real engineering work happening around me.</p>
+      <h4>Why</h4>
+      <p>Simulator sessions are scheduled and shared, so a configuration error can cost test time. A single standard checklist makes the preparation the same every time and leaves a record of what was checked before each session.</p>
     </div>
   </div>
 
   <div class="pp-stack">
-    <span class="chip">Excel / VBA</span><span class="chip">Systems integration</span><span class="chip">Test preparation</span><span class="chip">Simulator setup</span>
+    <span class="chip">Python</span><span class="chip">openpyxl</span><span class="chip">Test preparation</span><span class="chip">Simulator setup</span>
   </div>
 
   <div class="pp-actions">
-    <span class="pp-note">// internal tool — not publicly available</span>
+    <span class="pp-note">Internal tool, not publicly available.</span>
   </div>
 
   <div class="pp-nav">
-    <a href="sephar.html"><div class="dir">← Previous</div><div class="nm">SEPHAR — Underwater Glider</div></a>
-    <a class="next" href="roadster-hop.html"><div class="dir">Next →</div><div class="nm">Roadster Hop — GNC Simulation</div></a>
+    <a href="sephar.html"><div class="dir">← Previous</div><div class="nm">SEPHAR</div></a>
+    <a class="next" href="index.html#projects"><div class="dir">All projects →</div><div class="nm">Back to projects</div></a>
   </div>
 </div>
 </main>
 
 <footer>
-  <div class="wrap"><span>© 2026 SEBASTIÁN ABELLO — MADRID</span></div>
+  <div class="wrap"><span>© 2026 Sebastián Abello · Madrid</span></div>
 </footer>
 
 <script src="app.js"></script>

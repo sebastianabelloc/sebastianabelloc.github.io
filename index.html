@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sebastián Abello — Aerospace / GNC</title>
-<meta name="description" content="Aerospace engineer in flight-simulator test & integration on the A400M, moving toward Guidance, Navigation & Control. Projects, background and contact." />
+<title>Sebastián Abello · Aerospace Engineer</title>
+<meta name="description" content="Aerospace engineer in simulator test and integration on the Airbus A400M full-flight simulator. Projects in guidance, navigation and control, attitude dynamics and simulation." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="style.css?v=11" />
 </head>
 <body>
 
@@ -16,9 +16,10 @@
   <div class="wrap">
     <a class="brand" href="index.html">ABELLO<b>_</b>S</a>
     <nav>
-      <a href="#about">// about</a>
-      <a href="#work">// work</a>
-      <a href="#contact">// contact</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -30,18 +31,13 @@
     <span class="eyebrow">Aerospace Engineer · Guidance, Navigation &amp; Control</span>
     <h1>Sebastián<br><span class="l2">Abello</span></h1>
     <p class="role">
-      Flight-simulator <b>test &amp; integration</b> on the Airbus A400M, and a final-year aerospace engineer
-      heading into <b>GNC</b> — the systems that decide how a vehicle flies, navigates and holds its course.
+      Simulator <b>test &amp; integration</b> on the Airbus A400M full-flight simulator.
+      BSc in Aerospace Engineering, Universidad Europea de Madrid.
+      Focused on <b>GNC</b>, attitude dynamics and simulation.
     </p>
-    <div class="readout">
-      <div class="ro"><div class="k">Base</div><div class="v">MAD</div></div>
-      <div class="ro"><div class="k">Program</div><div class="v">A400M</div></div>
-      <div class="ro"><div class="k">Range</div><div class="v" id="ro-range">0</div></div>
-      <div class="ro"><div class="k">Alt</div><div class="v" id="ro-alt">0</div></div>
-      <div class="ro"><div class="k">Vel</div><div class="v" id="ro-vel">0</div></div>
-    </div>
     <div class="cta">
-      <a class="btn primary" href="#work">Review work</a>
+      <a class="btn primary" href="#projects">Projects</a>
+      <a class="btn" href="cv.pdf" target="_blank" rel="noopener">CV</a>
       <a class="btn" href="https://www.linkedin.com/in/sebastian-abello-30a642265/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn" href="https://github.com/sebastianabelloc" target="_blank" rel="noopener">GitHub</a>
     </div>
@@ -53,72 +49,82 @@
     <div class="sec-head reveal"><span class="tag">01</span><h2>About</h2><span class="rule"></span></div>
     <div class="about-grid reveal">
       <div>
-        <p>Final-year Aerospace Engineering student at Universidad Europea de Madrid, currently working as a
-          <b>Flight Simulator Test &amp; Integration Engineer</b> on the A400M program at Airbus Defence &amp; Space (through CT Engineering).</p>
-        <p>I work where flight dynamics, control systems and code meet. Designing and modelling the guidance and
-          control of autonomous vehicles is the work I care about most — and the direction I'm building toward.</p>
-        <p>Bilingual (Spanish / English), EU work-eligible, and always glad to talk with people working across space and defense.</p>
+        <p>Simulator Test &amp; Integration at <b>CT Ingenieros</b> on the Airbus A400M full-flight simulator in Getafe, since March 2026. Preparation and verification of the simulator for certification test campaigns, real-time troubleshooting during live sessions and validation of software updates against real avionics.</p>
+        <p>Final year of a BSc in Aerospace Engineering at Universidad Europea de Madrid, taught in English. Certificates from the University of Colorado Boulder in spacecraft dynamics and attitude control.</p>
+        <p>Main interest in guidance, navigation and control: rigid-body dynamics, attitude control and closed-loop simulation, written and tested in Python.</p>
       </div>
       <div class="sys">
-        <div class="sys-h">// system status</div>
+        <div class="sys-h">Details</div>
         <dl>
-          <div class="row"><dt>Location</dt><dd>Madrid, ES</dd></div>
-          <div class="row"><dt>Current</dt><dd>Airbus A400M · CT</dd></div>
-          <div class="row"><dt>Focus</dt><dd class="amber">GNC · Flight Dynamics</dd></div>
-          <div class="row"><dt>Stack</dt><dd>MATLAB · OpenFOAM · Python</dd></div>
-          <div class="row"><dt>Next</dt><dd>C++ · Simulink</dd></div>
-          <div class="row"><dt>Eligibility</dt><dd>ES + CO dual national</dd></div>
+          <div class="row"><dt>Location</dt><dd>Madrid, Spain</dd></div>
+          <div class="row"><dt>Current</dt><dd>A400M simulator · CT Ingenieros</dd></div>
+          <div class="row"><dt>Focus</dt><dd class="amber">GNC · Attitude dynamics</dd></div>
+          <div class="row"><dt>Programming</dt><dd>Python · C++ · MATLAB</dd></div>
+          <div class="row"><dt>Simulation</dt><dd>OpenFOAM · ANSYS · Simulink</dd></div>
+          <div class="row"><dt>Languages</dt><dd>Spanish · English (C1/C2)</dd></div>
+          <div class="row"><dt>Citizenship</dt><dd>Spanish (EU) · Colombian</dd></div>
         </dl>
       </div>
     </div>
   </div>
 </section>
 
-<section id="work">
+<section id="projects">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="tag">02</span><h2>Mission log</h2><span class="rule"></span></div>
-    <div class="filters reveal">
-      <button class="chip-btn active" data-filter="all">All</button>
-      <button class="chip-btn" data-filter="done">Complete</button>
-      <button class="chip-btn" data-filter="int">Internal</button>
-    </div>
+    <div class="sec-head reveal"><span class="tag">02</span><h2>Projects</h2><span class="rule"></span></div>
 
-    <a class="log reveal" href="sephar.html" data-status="done">
-      <div class="log-h"><div><span class="idx">LOG-01 · TFG 2025–26</span><h3>SEPHAR — Underwater Glider for Europa</h3></div><span class="badge done">Complete</span></div>
-      <p class="desc">A buoyancy-driven autonomous glider designed to survive and explore the ~100 km-deep ocean beneath the ice of Europa. Full pipeline built largely on open-source tools, on a laptop.</p>
-      <div class="metrics">
-        <div class="m"><div class="v">4.84</div><div class="k">max L/D</div></div>
-        <div class="m"><div class="v">100<span class="u"> km</span></div><div class="k">design depth</div></div>
-        <div class="m"><div class="v">74.9<span class="u"> d</span></div><div class="k">6-dive mission</div></div>
+    <a class="log has-media reveal" href="roadster-hop.html">
+      <div class="log-body">
+        <div class="log-h"><div><span class="idx">Personal project · 2026</span><h3>Roadster Hop: 6-DOF GNC Simulation</h3></div><span class="badge done">Complete</span></div>
+        <p class="desc">Simulation of the Tesla Roadster cold-gas thruster hop: powered take-off, a full barrel roll over a lineup of cars, hover and soft landing. Dynamics, control allocation and guidance written from scratch, with the 3D render driven by the simulation output.</p>
+        <div class="metrics">
+          <div class="m"><div class="v">6<span class="u"> DOF</span></div><div class="k">rigid body</div></div>
+          <div class="m"><div class="v">360°</div><div class="k">barrel roll</div></div>
+          <div class="m"><div class="v">−0.6<span class="u"> m/s</span></div><div class="k">touchdown</div></div>
+        </div>
+        <div class="log-f"><div class="stack"><span class="chip">Python</span><span class="chip">Quaternions</span><span class="chip">Control allocation</span><span class="chip">Blender</span></div>
+          <span class="open-cue">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </div>
-      <div class="log-f"><div class="stack"><span class="chip">OpenFOAM</span><span class="chip">XFLR5</span><span class="chip">MATLAB</span><span class="chip">Fusion 360</span></div>
-        <span class="open-cue">View briefing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <div class="log-media"><img src="assets/roadster-hop-thumb.jpg" alt="Roadster on its side during the barrel roll, over the lineup of cars" loading="lazy" /></div>
     </a>
 
-    <a class="log reveal" href="a400m-session-manager.html" data-status="int">
-      <div class="log-h"><div><span class="idx">LOG-02 · Airbus A400M · CT</span><h3>Simulator Session Manager</h3></div><span class="badge int">Internal</span></div>
-      <p class="desc">An internal tool built alongside my systems-integration work on the A400M full-flight simulator — streamlines the preparation and setup before each test session so every configuration is right when the test window opens.</p>
-      <div class="log-f"><div class="stack"><span class="chip">Excel / VBA</span><span class="chip">Systems integration</span><span class="chip">Test preparation</span></div>
-        <span class="open-cue">View briefing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-    </a>
-
-    <a class="log reveal" href="roadster-hop.html" data-status="done">
-      <div class="log-h"><div><span class="idx">LOG-03 · Personal project · 2026</span><h3>Roadster Hop — 6-DOF GNC Simulation</h3></div><span class="badge done">Complete</span></div>
-      <p class="desc">The Tesla Roadster cold-gas hop, flown in simulation: powered take-off, a full barrel roll over a lineup of cars, hover and soft landing. Dynamics, control allocation and guidance written from scratch, rendered in 3D straight from the simulation output.</p>
-      <div class="metrics">
-        <div class="m"><div class="v">6<span class="u"> DOF</span></div><div class="k">rigid body</div></div>
-        <div class="m"><div class="v">360°</div><div class="k">barrel roll</div></div>
-        <div class="m"><div class="v">−0.6<span class="u"> m/s</span></div><div class="k">touchdown</div></div>
+    <a class="log reveal" href="https://github.com/sebastianabelloc/openLodestar" target="_blank" rel="noopener">
+      <div class="log-body">
+        <div class="log-h"><div><span class="idx">Open source · 2026</span><h3>openLodestar: Spacecraft Attitude Simulator</h3></div><span class="badge wip">In progress</span></div>
+        <p class="desc">Open-source spacecraft attitude dynamics and control simulator. Quaternion kinematics and Euler's equations, closed-loop slew-and-hold manoeuvres with 3 reaction wheels and a quaternion-feedback PD controller, and the Dzhanibekov effect reproduced in a 3D animation.</p>
+        <div class="metrics">
+          <div class="m"><div class="v">49</div><div class="k">automated tests</div></div>
+          <div class="m"><div class="v">3</div><div class="k">releases</div></div>
+          <div class="m"><div class="v">3</div><div class="k">reaction wheels</div></div>
+        </div>
+        <div class="log-f"><div class="stack"><span class="chip">Python</span><span class="chip">NumPy</span><span class="chip">pytest</span></div>
+          <span class="open-cue">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span></div>
       </div>
-      <div class="log-f"><div class="stack"><span class="chip">Python</span><span class="chip">Quaternions</span><span class="chip">Control allocation</span><span class="chip">Blender</span></div>
-        <span class="open-cue">View briefing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
     </a>
 
-    <div class="log ghost reveal" aria-hidden="true">
-      <div class="log-h"><div><span class="idx">LOG-04 · upcoming</span><h3>More projects incoming</h3></div><span class="badge int">Planned</span></div>
-      <p class="desc">New entries will land here as they take shape.</p>
-      <div class="log-f"><span class="pp-note">// space reserved for future work</span></div>
-    </div>
+    <a class="log has-media reveal" href="sephar.html">
+      <div class="log-body">
+        <div class="log-h"><div><span class="idx">Thesis · 2025–26</span><h3>SEPHAR: Underwater Glider for Europa</h3></div><span class="badge done">Complete</span></div>
+        <p class="desc">Buoyancy-driven autonomous glider for the subsurface ocean of Europa, sized for extreme pressure and cryogenic conditions. Hydrodynamics in OpenFOAM and pitch control with a sliding battery mass.</p>
+        <div class="metrics">
+          <div class="m"><div class="v">4.84</div><div class="k">max L/D</div></div>
+          <div class="m"><div class="v">100<span class="u"> km</span></div><div class="k">design depth</div></div>
+          <div class="m"><div class="v">74.9<span class="u"> d</span></div><div class="k">6-dive mission</div></div>
+        </div>
+        <div class="log-f"><div class="stack"><span class="chip">OpenFOAM</span><span class="chip">XFLR5</span><span class="chip">MATLAB</span><span class="chip">Fusion 360</span></div>
+          <span class="open-cue">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </div>
+      <div class="log-media light"><img src="assets/sephar-exterior.png" alt="SEPHAR underwater glider, exterior CAD render" loading="lazy" /></div>
+    </a>
+
+    <a class="log reveal" href="a400m-session-manager.html">
+      <div class="log-body">
+        <div class="log-h"><div><span class="idx">Airbus A400M · CT Ingenieros</span><h3>Simulator Session Manager</h3></div><span class="badge int">Internal</span></div>
+        <p class="desc">Internal tool that standardizes the preparation of each A400M simulator test session: a 7-category checklist across 3 linked sheets, generated in Python with formulas and conditional formatting.</p>
+        <div class="log-f"><div class="stack"><span class="chip">Python</span><span class="chip">openpyxl</span><span class="chip">Test preparation</span></div>
+          <span class="open-cue">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </div>
+    </a>
 
   </div>
 </section>
@@ -128,13 +134,13 @@
     <div class="sec-head reveal"><span class="tag">03</span><h2>Contact</h2><span class="rule"></span></div>
     <div class="c-grid reveal">
       <div>
-        <h2>Get in <span class="cy">touch.</span></h2>
-        <p>Always happy to talk aerospace, GNC and simulation.</p>
+        <p>Best reached by email.</p>
       </div>
       <div class="links">
         <a class="lrow" href="mailto:sebastian.abelloc@gmail.com"><span class="k">Email</span><span class="v">sebastian.abelloc@gmail.com →</span></a>
         <a class="lrow" href="https://www.linkedin.com/in/sebastian-abello-30a642265/" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">/sebastian-abello →</span></a>
         <a class="lrow" href="https://github.com/sebastianabelloc" target="_blank" rel="noopener"><span class="k">GitHub</span><span class="v">/sebastianabelloc →</span></a>
+        <a class="lrow" href="cv.pdf" target="_blank" rel="noopener"><span class="k">CV</span><span class="v">PDF →</span></a>
       </div>
     </div>
   </div>
@@ -143,7 +149,7 @@
 
 <footer>
   <div class="wrap">
-    <span>© 2026 SEBASTIÁN ABELLO — MADRID</span>
+    <span>© 2026 Sebastián Abello · Madrid</span>
   </div>
 </footer>
 

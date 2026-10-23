@@ -3,36 +3,36 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Roadster Hop — 6-DOF GNC Simulation · Sebastián Abello</title>
-<meta name="description" content="A 6-DOF simulation of the Tesla Roadster cold-gas hop with my own guidance and control: powered take-off, barrel roll, hover and soft landing, rendered in 3D from the simulation output." />
+<title>Roadster Hop: 6-DOF GNC Simulation · Sebastián Abello</title>
+<meta name="description" content="6-DOF simulation of the Tesla Roadster cold-gas thruster hop: powered take-off, barrel roll, hover and soft landing, with the 3D render driven by the simulation output." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=10" />
+<link rel="stylesheet" href="style.css?v=11" />
 </head>
 <body>
 
 <header class="bar">
   <div class="wrap">
     <a class="brand" href="index.html">ABELLO<b>_</b>S</a>
-    <a class="back-link" href="index.html#work">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>All work
+    <a class="back-link" href="index.html#projects">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>All projects
     </a>
   </div>
 </header>
 
 <main>
 <div class="pp wrap">
-  <span class="eyebrow">LOG-03 · Personal project · 2026</span>
+  <span class="eyebrow">Personal project · 2026</span>
   <span class="badge done pp-badge">Complete</span>
-  <h1>Roadster Hop — 6-DOF GNC Simulation</h1>
-  <p class="pp-lead">When I saw the new Roadster lift off on cold-gas thrusters, roll over a lineup of cars and land, I wanted to know what it takes to fly that manoeuvre. So I wrote the dynamics, the controller and the guidance from scratch, and rendered the result in 3D.</p>
+  <h1>Roadster Hop: 6-DOF GNC Simulation</h1>
+  <p class="pp-lead">Simulation of the Tesla Roadster cold-gas thruster hop shown at its presentation: take-off, a full barrel roll over a lineup of cars, hover and landing. Dynamics, control and guidance written from scratch in Python, cross-checked against hand-derived equations.</p>
 
-  <div class="pp-figure">
+  <div class="pp-figure wide">
     <div class="pp-figure-img dark">
       <video src="assets/roadster-hop.mp4" poster="assets/roadster-hop-poster.jpg" controls muted loop playsinline preload="metadata"></video>
     </div>
-    <div class="pp-figure-cap"><b>VID-01</b>Every frame is driven by the simulation output — Blender only draws it</div>
+    <div class="pp-figure-cap"><b>VID-01</b>3D render driven by the simulation output: position, attitude and nozzle throttles</div>
   </div>
 
   <div class="pp-specs">
@@ -45,41 +45,41 @@
 
   <div class="pp-body">
     <div class="pp-sec">
-      <h4>The manoeuvre</h4>
+      <h4>Manoeuvre</h4>
       <ul>
-        <li>Powered take-off: the 4 floor nozzles push at 1.9× the car's weight until it climbs at 7 m/s, then cut.</li>
+        <li>Powered take-off: the 4 floor nozzles push at 1.9 times the weight until the car climbs at 7 m/s.</li>
         <li>Full 360° barrel roll in 1.5 s over the lineup.</li>
         <li>Braking and a 0.5 m hover, with the floor nozzles throttled to hold altitude.</li>
-        <li>Slow descent at 0.6 m/s and a level touchdown about 35 m after take-off.</li>
+        <li>Descent at 0.6 m/s and level touchdown about 35 m after take-off.</li>
       </ul>
     </div>
     <div class="pp-sec">
       <h4>Dynamics</h4>
-      <p>A 2000 kg rigid body with a 13-state vector: position, velocity, attitude quaternion and body angular rates. Attitude is propagated with q̇ = ½ q·(0, ω) (Hamilton product) and the rotation with Euler's equation I ω̇ = τ − ω × I ω, integrated with RK45 and stopped by a touchdown event. Six nozzles — four under the floor and one on each side near the front wheels — are defined by their position and direction, and every force and torque comes from τ = Σ rᵢ × Fᵢ. None of them can push the car down.</p>
+      <p>2000 kg rigid body with 13 states: position, velocity, attitude quaternion and body angular rates. Quaternion kinematics q̇ = ½ q·(0, ω) and Euler's equation I ω̇ = τ − ω × I ω, integrated with RK45 and stopped by a touchdown event. Six nozzles, four under the floor and one on each side near the front wheels, defined by position and direction, with torques from τ = Σ rᵢ × Fᵢ. No nozzle can push the car down.</p>
     </div>
     <div class="pp-sec">
       <h4>Control</h4>
-      <p>Attitude is held by a PD law on the quaternion error, q<sub>e</sub> = q<sub>ref</sub>*·q, plus a feedforward of the torque the roll profile needs, so the feedback only corrects small errors. A control allocator then shares the commanded force and torques among the nozzles like the motors of a drone: the four floor nozzles are throttled between 0 and 1 for lift, roll and pitch, and the two side nozzles fire on/off with a deadband for yaw. The loop runs at 50 Hz with zero-order hold, like a flight computer.</p>
+      <p>PD law on the quaternion error q<sub>e</sub> = q<sub>ref</sub>*·q plus a feedforward of the torque the roll profile needs. A control allocator shares the commanded force and torques among the nozzles, like the motors of a drone: the four floor nozzles are throttled between 0 and 1 for lift, roll and pitch, and the two side nozzles fire on/off with a deadband for yaw. 50 Hz loop with zero-order hold.</p>
     </div>
     <div class="pp-sec">
       <h4>Guidance</h4>
-      <p>Each phase has its own reference: full lift until the cut-off speed, a smooth cosine roll profile from 0 to −360° with zero rate at both ends, a braking law v<sub>ref</sub> = −√(2a(z − z<sub>hover</sub>)) that can always stop at the hover height, and an outer lateral loop that tilts the floor thrust slightly to bring the car back to the runway centre line.</p>
+      <p>Full lift until the cut-off speed, a cosine roll profile from 0 to −360° with zero rate at both ends, a braking law v<sub>ref</sub> = −√(2a(z − z<sub>hover</sub>)) that can always stop at the hover height, and an outer lateral loop that tilts the floor thrust to bring the car back to the runway centre line.</p>
       <div class="pp-figure">
         <div class="pp-figure-img"><img src="assets/roadster-preview.png" alt="Trajectory preview: side view to scale over the lineup, view from behind, altitude, vertical speed, roll and lateral offset over time, and the throttle of each nozzle" loading="lazy" /></div>
-        <div class="pp-figure-cap"><b>FIG-01</b>Trajectory preview — side view to scale, roll, lateral drift and nozzle throttle over time</div>
+        <div class="pp-figure-cap"><b>FIG-01</b>Trajectory preview: side view to scale, roll, lateral drift and nozzle throttle over time</div>
       </div>
     </div>
     <div class="pp-sec">
       <h4>Validation</h4>
       <ul>
-        <li>53 unit and closed-loop tests: the uncontrolled loop matches the plain free-flight integration, the roll ends level before braking, throttles stay within limits and the landing is soft.</li>
-        <li>A quick 2D preview of the trajectory in seconds, so the physics is checked before a 30-minute 3D render.</li>
-        <li>Max lateral drift of 1.2 m, well inside the runway lines.</li>
+        <li>53 unit and closed-loop tests with pytest: the uncontrolled loop matches the free-flight integration, the roll ends level before braking, throttles stay within limits and the landing is soft.</li>
+        <li>2D trajectory preview generated in seconds, used to check each change before the 3D render.</li>
+        <li>Maximum lateral drift of 1.2 m.</li>
       </ul>
     </div>
     <div class="pp-sec">
       <h4>Simplifications</h4>
-      <p>Constant mass, ideal nozzles with instant thrust, no aerodynamics or ground effect and perfect state knowledge. Thrust levels and nozzle positions are my own estimates from the demo footage — this is a study of the manoeuvre, not a model of the real car. Not affiliated with Tesla.</p>
+      <p>Constant mass, ideal nozzles with instant thrust, no aerodynamics or ground effect and perfect state knowledge. Thrust levels and nozzle positions are estimates from the demo footage, not data from the real car. Not affiliated with Tesla.</p>
     </div>
   </div>
 
@@ -89,19 +89,19 @@
 
   <div class="pp-actions">
     <a class="btn primary" href="https://github.com/sebastianabelloc/roadster-demo-sim" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>View the code on GitHub
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>Code on GitHub
     </a>
   </div>
 
   <div class="pp-nav">
-    <a href="a400m-session-manager.html"><div class="dir">← Previous</div><div class="nm">Simulator Session Manager</div></a>
-    <a class="next" href="index.html#work"><div class="dir">All work →</div><div class="nm">Back to Mission log</div></a>
+    <a href="index.html#projects"><div class="dir">← All projects</div><div class="nm">Back to projects</div></a>
+    <a class="next" href="sephar.html"><div class="dir">Next →</div><div class="nm">SEPHAR</div></a>
   </div>
 </div>
 </main>
 
 <footer>
-  <div class="wrap"><span>© 2026 SEBASTIÁN ABELLO — MADRID</span></div>
+  <div class="wrap"><span>© 2026 Sebastián Abello · Madrid</span></div>
 </footer>
 
 <script src="app.js"></script>

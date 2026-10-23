@@ -3,34 +3,34 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SEPHAR — Underwater Glider for Europa · Sebastián Abello</title>
-<meta name="description" content="SEPHAR: design and analysis of a buoyancy-driven autonomous underwater glider for exploring the subsurface ocean of Europa." />
+<title>SEPHAR: Underwater Glider for Europa · Sebastián Abello</title>
+<meta name="description" content="SEPHAR: design and analysis of a buoyancy-driven autonomous underwater glider for the subsurface ocean of Europa. BSc thesis, Universidad Europea de Madrid." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=9" />
+<link rel="stylesheet" href="style.css?v=11" />
 </head>
 <body>
 
 <header class="bar">
   <div class="wrap">
     <a class="brand" href="index.html">ABELLO<b>_</b>S</a>
-    <a class="back-link" href="index.html#work">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>All work
+    <a class="back-link" href="index.html#projects">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>All projects
     </a>
   </div>
 </header>
 
 <main>
 <div class="pp wrap">
-  <span class="eyebrow">LOG-01 · TFG 2025–26</span>
+  <span class="eyebrow">BSc thesis · 2025–26</span>
   <span class="badge done pp-badge">Complete</span>
-  <h1>SEPHAR — Underwater Glider for Europa</h1>
-  <p class="pp-lead">My final degree project: the design and analysis of an autonomous submersible glider conceived to reach and profile the subsurface ocean of Europa — one of the Solar System's strongest candidates for life.</p>
+  <h1>SEPHAR: Underwater Glider for Europa</h1>
+  <p class="pp-lead">Design and analysis of an autonomous underwater glider for the subsurface ocean of Europa (Jupiter). BSc thesis in Aerospace Engineering, Universidad Europea de Madrid.</p>
 
-  <div class="pp-figure">
-    <div class="pp-figure-img"><img src="assets/sephar-exterior.png" alt="SEPHAR underwater glider — exterior CAD render showing hull, hydrofoils and tail" loading="lazy" /></div>
-    <div class="pp-figure-cap"><b>FIG-01</b>Exterior — CFRP Myring hull, NACA 0009 hydrofoils, ~2.70 m length</div>
+  <div class="pp-figure wide">
+    <div class="pp-figure-img"><img src="assets/sephar-exterior.png" alt="SEPHAR underwater glider, exterior CAD render showing hull, hydrofoils and tail" loading="lazy" /></div>
+    <div class="pp-figure-cap"><b>FIG-01</b>Exterior: CFRP Myring hull, NACA 0009 hydrofoils, 2.70 m length</div>
   </div>
 
   <div class="pp-specs">
@@ -44,28 +44,27 @@
   <div class="pp-body">
     <div class="pp-sec">
       <h4>Mission</h4>
-      <p>Europa hides a saltwater ocean up to ~100 km deep beneath its ice. Reaching it means surviving extreme hydrostatic pressure, operating with no GPS and no light, and enduring for months on a single battery — a design problem that breaks most conventional assumptions.</p>
+      <p>Europa has a saltwater ocean up to about 100 km deep under its ice shell. A vehicle there has to withstand very high hydrostatic pressure, navigate without GPS or light and operate for months on a single battery.</p>
     </div>
     <div class="pp-sec">
       <h4>Architecture</h4>
-      <p>A buoyancy-driven glider was selected — no propellers or rotating machinery in the flow. The vehicle changes its own buoyancy to sink and rise, while hydrofoils convert that vertical motion into forward glide, spending energy only at each dive inflection. Hull: a Myring body of revolution in CFRP, ~2.70 m long, ~200 kg, with NACA 0009 hydrofoils.</p>
+      <p>Buoyancy-driven glider with no propellers. It changes its buoyancy to sink and rise, and the hydrofoils turn that vertical motion into forward glide, so energy is only spent at each change of direction. Myring hull in CFRP, 2.70 m long and about 200 kg, with NACA 0009 hydrofoils.</p>
       <div class="pp-figure">
-        <div class="pp-figure-img"><img src="assets/sephar-cutaway.png" alt="SEPHAR internal layout — cutaway view showing pressure vessels, battery packs, sliding internal mass and control systems" loading="lazy" /></div>
-        <div class="pp-figure-cap"><b>FIG-02</b>Cutaway — forward pressure vessel, battery banks, sliding pitch-control mass, aft electronics bay</div>
+        <div class="pp-figure-img"><img src="assets/sephar-cutaway.png" alt="SEPHAR internal layout, cutaway view showing pressure vessels, battery packs, sliding internal mass and control systems" loading="lazy" /></div>
+        <div class="pp-figure-cap"><b>FIG-02</b>Cutaway: forward pressure vessel, battery banks, sliding pitch-control mass, aft electronics bay</div>
       </div>
     </div>
     <div class="pp-sec">
-      <h4>Analysis pipeline</h4>
-      <p>Geometry parametrised in Fusion 360 → hydrodynamics characterised in OpenFOAM (k-ω SST with Langtry–Menter transition) across a sweep of angles of attack → cross-checked against a panel method in XFLR5 → longitudinal dynamic and mission model in MATLAB. Every mission value is traceable back to the computation that produced it.</p>
+      <h4>Analysis</h4>
+      <p>Geometry in Fusion 360, hydrodynamics in OpenFOAM (k-ω SST with Langtry-Menter transition) over a sweep of angles of attack, cross-checked with a panel method in XFLR5, and a longitudinal dynamics and mission model in MATLAB.</p>
     </div>
     <div class="pp-sec">
-      <h4>Key results</h4>
+      <h4>Results</h4>
       <ul>
         <li>Maximum lift-to-drag ratio of 4.84.</li>
-        <li>Longitudinally unstable by design (static margin −8.9%), stabilised with an active pitch-control system driven by a sliding internal mass.</li>
-        <li>Nominal mission: 6 full-depth dives over 74.9 days, using 3,483 Wh of an 8,400 Wh pack.</li>
-        <li>An alternate configuration tuned for the deepest part of the ocean also met mission objectives.</li>
-        <li>Complete engineering cycle — design, hydrodynamics, dynamics, control, validation — run on open-source tools on a laptop.</li>
+        <li>Longitudinally unstable by design (static margin −8.9 %), stabilised by active pitch control with a stepper-driven sliding battery mass.</li>
+        <li>Nominal mission of 6 full-depth dives over 74.9 days, using 3,483 Wh of an 8,400 Wh battery.</li>
+        <li>An alternate configuration for the deepest part of the ocean also met the mission objectives.</li>
       </ul>
     </div>
   </div>
@@ -76,19 +75,19 @@
 
   <div class="pp-actions">
     <a class="btn primary" href="SebastianAbelloTFG.pdf" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>Read the thesis · 118 pp
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>Thesis (PDF, 118 pages)
     </a>
   </div>
 
   <div class="pp-nav">
-    <a href="index.html#work"><div class="dir">← All work</div><div class="nm">Back to Mission log</div></a>
+    <a href="roadster-hop.html"><div class="dir">← Previous</div><div class="nm">Roadster Hop</div></a>
     <a class="next" href="a400m-session-manager.html"><div class="dir">Next →</div><div class="nm">Simulator Session Manager</div></a>
   </div>
 </div>
 </main>
 
 <footer>
-  <div class="wrap"><span>© 2026 SEBASTIÁN ABELLO — MADRID</span></div>
+  <div class="wrap"><span>© 2026 Sebastián Abello · Madrid</span></div>
 </footer>
 
 <script src="app.js"></script>
