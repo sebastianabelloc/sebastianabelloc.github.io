@@ -7,6 +7,13 @@
     if(!window.location.hash){ window.scrollTo(0,0); }
   });
 
+  /* mobile menu */
+  var mb=document.querySelector('.menu-btn'), nv=document.querySelector('.bar nav');
+  if(mb&&nv){
+    mb.addEventListener('click',function(){var o=nv.classList.toggle('open');mb.setAttribute('aria-expanded',o);});
+    nv.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nv.classList.remove('open');mb.setAttribute('aria-expanded',false);});});
+  }
+
   /* filters (operate on real link cards) */
   var chipBtns=document.querySelectorAll('.chip-btn');
   chipBtns.forEach(function(b){
@@ -24,7 +31,7 @@
   if(cv){
     var ctx=cv.getContext('2d'),W,H,dpr;
     function size(){dpr=Math.min(window.devicePixelRatio||1,2);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
-    function yAt(px){var t=px/W;return H*0.34+t*(H*0.34)+Math.sin(t*Math.PI*3.1)*H*0.11*(1-t*0.35);}
+    function yAt(px){var t=px/W;return H*0.88+t*(H*0.03)+Math.sin(t*Math.PI*3.1)*H*0.05*(1-t*0.35);}
     var prog=0,dir=1;
     var roR=document.getElementById('ro-range'),roA=document.getElementById('ro-alt'),roV=document.getElementById('ro-vel');
     function frame(){

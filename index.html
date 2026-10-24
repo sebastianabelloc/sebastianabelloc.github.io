@@ -8,13 +8,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=12" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Sebastián Abello · Aerospace Engineer" />
+<meta property="og:description" content="Projects in guidance, navigation and control, attitude dynamics and simulation." />
+<meta property="og:image" content="https://sebastianabelloc.github.io/assets/og-roadster.jpg" />
+<meta property="og:url" content="https://sebastianabelloc.github.io/" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="stylesheet" href="style.css?v=13" />
 </head>
 <body>
 
 <header class="bar">
   <div class="wrap">
     <a class="brand" href="index.html">ABELLO<b>_</b>S</a>
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
@@ -61,7 +69,7 @@
           <div class="row"><dt>Focus</dt><dd class="amber">GNC · Attitude dynamics</dd></div>
           <div class="row"><dt>Programming</dt><dd>Python · C++ · MATLAB</dd></div>
           <div class="row"><dt>Simulation</dt><dd>OpenFOAM · ANSYS · Simulink</dd></div>
-          <div class="row"><dt>Languages</dt><dd>Spanish · English (C1/C2)</dd></div>
+          <div class="row"><dt>Languages</dt><dd>Spanish · English (C1/C2) · Portuguese</dd></div>
           <div class="row"><dt>Citizenship</dt><dd>Spanish (EU) · Colombian</dd></div>
         </dl>
       </div>
@@ -88,7 +96,7 @@
       <div class="log-media"><img src="assets/roadster-hop-thumb.jpg" alt="Roadster on its side during the barrel roll, over the lineup of cars" loading="lazy" /></div>
     </a>
 
-    <a class="log reveal" href="https://github.com/sebastianabelloc/openLodestar" target="_blank" rel="noopener">
+    <a class="log has-media reveal" href="https://github.com/sebastianabelloc/openLodestar" target="_blank" rel="noopener">
       <div class="log-body">
         <div class="log-h"><div><span class="idx">Open source · 2026</span><h3>openLodestar: Spacecraft Attitude Simulator</h3></div><span class="badge wip">In progress</span></div>
         <p class="desc">Open-source spacecraft attitude dynamics and control simulator. Quaternion kinematics and Euler's equations, closed-loop slew-and-hold manoeuvres with 3 reaction wheels and a quaternion-feedback PD controller, and the Dzhanibekov effect reproduced in a 3D animation.</p>
@@ -100,6 +108,7 @@
         <div class="log-f"><div class="stack"><span class="chip">Python</span><span class="chip">NumPy</span><span class="chip">pytest</span></div>
           <span class="open-cue">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span></div>
       </div>
+      <div class="log-media fit"><img src="assets/openlodestar-dzhanibekov.png" alt="Body rates of a torque-free tumbling body: the intermediate-axis rate flips sign periodically (Dzhanibekov effect)" loading="lazy" /></div>
     </a>
 
     <a class="log has-media reveal" href="sephar.html">
@@ -114,7 +123,7 @@
         <div class="log-f"><div class="stack"><span class="chip">MATLAB</span><span class="chip">Control design</span><span class="chip">OpenFOAM</span><span class="chip">Fusion 360</span></div>
           <span class="open-cue">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </div>
-      <div class="log-media light"><img src="assets/sephar-exterior.png" alt="SEPHAR underwater glider, exterior CAD render" loading="lazy" /></div>
+      <div class="log-media fit sephar"><img src="assets/sephar-exterior-dark.jpg" alt="SEPHAR underwater glider, exterior CAD render" loading="lazy" /></div>
     </a>
 
     <a class="log reveal" href="a400m-session-manager.html">
@@ -126,16 +135,19 @@
       </div>
     </a>
 
+    <div class="others reveal">
+      <h4>Other projects</h4>
+      <div class="orow"><span class="on">CubeSat with reaction wheel</span><span class="od">Real-time yaw pointing correction with IMU sensors and a reaction wheel.</span><span class="ot">SolidWorks · C++</span></div>
+      <div class="orow"><span class="on">Autonomous explorer rover</span><span class="od">Autonomous navigation with obstacle avoidance and calibrated motor control.</span><span class="ot">Python · C++</span></div>
+    </div>
+
   </div>
 </section>
 
 <section id="contact">
   <div class="wrap">
     <div class="sec-head reveal"><span class="tag">03</span><h2>Contact</h2><span class="rule"></span></div>
-    <div class="c-grid reveal">
-      <div>
-        <p>Best reached by email.</p>
-      </div>
+    <div class="contact reveal">
       <div class="links">
         <a class="lrow" href="mailto:sebastian.abelloc@gmail.com"><span class="k">Email</span><span class="v">sebastian.abelloc@gmail.com →</span></a>
         <a class="lrow" href="https://www.linkedin.com/in/sebastian-abello-30a642265/" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">/sebastian-abello →</span></a>
