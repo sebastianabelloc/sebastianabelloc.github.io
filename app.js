@@ -69,6 +69,9 @@
     }
   }
 
+  /* card clips: respect reduced motion */
+  if(reduce){document.querySelectorAll('.log-media video').forEach(function(v){v.removeAttribute('autoplay');v.pause();});}
+
   /* scroll reveal */
   if(!reduce&&'IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});

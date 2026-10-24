@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Sebastián Abello · Aerospace Engineer</title>
 <meta name="description" content="Aerospace engineer in simulator test and integration on the Airbus A400M full-flight simulator. Projects in guidance, navigation and control, attitude dynamics and simulation." />
@@ -15,7 +16,7 @@
 <meta property="og:image" content="https://sebastianabelloc.github.io/assets/og-roadster.jpg" />
 <meta property="og:url" content="https://sebastianabelloc.github.io/" />
 <meta name="twitter:card" content="summary_large_image" />
-<link rel="stylesheet" href="style.css?v=13" />
+<link rel="stylesheet" href="style.css?v=14" />
 </head>
 <body>
 
@@ -24,8 +25,8 @@
     <a class="brand" href="index.html">ABELLO<b>_</b>S</a>
     <button class="menu-btn" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
     <nav>
-      <a href="#about">About</a>
       <a href="#projects">Projects</a>
+      <a href="#about">About</a>
       <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -52,34 +53,9 @@
   </div>
 </section>
 
-<section id="about">
-  <div class="wrap">
-    <div class="sec-head reveal"><span class="tag">01</span><h2>About</h2><span class="rule"></span></div>
-    <div class="about-grid reveal">
-      <div>
-        <p>Simulator Test &amp; Integration at <b>CT Ingenieros</b> on the Airbus A400M full-flight simulator in Getafe, since March 2026. Preparation and verification of the simulator for certification test campaigns, real-time troubleshooting during live sessions and validation of software updates against real avionics.</p>
-        <p>Final year of a BSc in Aerospace Engineering at Universidad Europea de Madrid, taught in English. Certificates from the University of Colorado Boulder in spacecraft dynamics and attitude control.</p>
-        <p>Main interest in guidance, navigation and control: rigid-body dynamics, attitude control and closed-loop simulation, written and tested in Python.</p>
-      </div>
-      <div class="sys">
-        <div class="sys-h">Details</div>
-        <dl>
-          <div class="row"><dt>Location</dt><dd>Madrid, Spain</dd></div>
-          <div class="row"><dt>Current</dt><dd>A400M simulator · CT Ingenieros</dd></div>
-          <div class="row"><dt>Focus</dt><dd class="amber">GNC · Attitude dynamics</dd></div>
-          <div class="row"><dt>Programming</dt><dd>Python · C++ · MATLAB</dd></div>
-          <div class="row"><dt>Simulation</dt><dd>OpenFOAM · ANSYS · Simulink</dd></div>
-          <div class="row"><dt>Languages</dt><dd>Spanish · English (C1/C2) · Portuguese</dd></div>
-          <div class="row"><dt>Citizenship</dt><dd>Spanish (EU) · Colombian</dd></div>
-        </dl>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="projects">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="tag">02</span><h2>Projects</h2><span class="rule"></span></div>
+    <div class="sec-head reveal"><span class="tag">01</span><h2>Projects</h2><span class="rule"></span></div>
 
     <a class="log has-media reveal" href="roadster-hop.html">
       <div class="log-body">
@@ -93,7 +69,7 @@
         <div class="log-f"><div class="stack"><span class="chip">Python</span><span class="chip">Quaternions</span><span class="chip">Control allocation</span><span class="chip">Blender</span></div>
           <span class="open-cue">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </div>
-      <div class="log-media"><img src="assets/roadster-hop-thumb.jpg" alt="Roadster on its side during the barrel roll, over the lineup of cars" loading="lazy" /></div>
+      <div class="log-media"><video src="assets/roadster-card.mp4" poster="assets/roadster-hop-thumb.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Render of the simulated hop: take-off, barrel roll over the lineup of cars and landing"></video></div>
     </a>
 
     <a class="log has-media reveal" href="https://github.com/sebastianabelloc/openLodestar" target="_blank" rel="noopener">
@@ -108,7 +84,7 @@
         <div class="log-f"><div class="stack"><span class="chip">Python</span><span class="chip">NumPy</span><span class="chip">pytest</span></div>
           <span class="open-cue">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span></div>
       </div>
-      <div class="log-media fit"><img src="assets/openlodestar-dzhanibekov.png" alt="Body rates of a torque-free tumbling body: the intermediate-axis rate flips sign periodically (Dzhanibekov effect)" loading="lazy" /></div>
+      <div class="log-media fit"><video src="assets/lodestar-tumble.mp4" poster="assets/lodestar-tumble-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Torque-free tumbling body simulated with openLodestar: the intermediate axis flips periodically (Dzhanibekov effect)"></video></div>
     </a>
 
     <a class="log has-media reveal" href="sephar.html">
@@ -141,6 +117,31 @@
       <div class="orow"><span class="on">Autonomous explorer rover</span><span class="od">Autonomous navigation with obstacle avoidance and calibrated motor control.</span><span class="ot">Python · C++</span></div>
     </div>
 
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="tag">02</span><h2>About</h2><span class="rule"></span></div>
+    <div class="about-grid reveal">
+      <div>
+        <p>Simulator Test &amp; Integration at <b>CT Ingenieros</b> on the Airbus A400M full-flight simulator in Getafe, since March 2026. Preparation and verification of the simulator for certification test campaigns, real-time troubleshooting during live sessions and validation of software updates against real avionics.</p>
+        <p>Final year of a BSc in Aerospace Engineering at Universidad Europea de Madrid, taught in English. Certificates from the University of Colorado Boulder in spacecraft dynamics and attitude control.</p>
+        <p>Main interest in guidance, navigation and control: rigid-body dynamics, attitude control and closed-loop simulation, written and tested in Python.</p>
+      </div>
+      <div class="sys">
+        <div class="sys-h">Details</div>
+        <dl>
+          <div class="row"><dt>Location</dt><dd>Madrid, Spain</dd></div>
+          <div class="row"><dt>Current</dt><dd>A400M simulator · CT Ingenieros</dd></div>
+          <div class="row"><dt>Focus</dt><dd class="amber">GNC · Attitude dynamics</dd></div>
+          <div class="row"><dt>Programming</dt><dd>Python · C++ · MATLAB</dd></div>
+          <div class="row"><dt>Simulation</dt><dd>OpenFOAM · ANSYS · Simulink</dd></div>
+          <div class="row"><dt>Languages</dt><dd>Spanish · English (C1/C2) · Portuguese</dd></div>
+          <div class="row"><dt>Citizenship</dt><dd>Spanish (EU) · Colombian</dd></div>
+        </dl>
+      </div>
+    </div>
   </div>
 </section>
 
